@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Disclaimer & Legal Notice — Temi Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2b52;
+    --navy-dark: #111e3a;
+    --navy-mid: #243661;
+    --red: #c0221a;
+    --red-light: #d4281f;
+    --stone: #f5f1eb;
+    --stone-dark: #ede8e0;
+    --stone-mid: #e8e2d8;
+    --cream: #faf8f4;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #5a5a5a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--stone);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--navy-dark);
+    border-bottom: 3px solid var(--red);
+    padding: 28px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-logo {
+    height: 60px;
+    width: auto;
+  }
+  .header-back {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .header-back:hover { color: var(--white); }
+  .header-back::before {
+    content: '←';
+    font-size: 1rem;
+  }
+
+  /* ── HERO BAND ── */
+  .page-hero {
+    background: var(--navy);
+    padding: 72px 60px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 40%; height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(192,34,26,0.07) 100%);
+    pointer-events: none;
+  }
+  .page-hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .page-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .page-label::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--red);
+  }
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .page-title em { font-style: italic; color: var(--red); }
+  .page-subtitle {
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── MAIN CONTENT ── */
+  main {
+    flex: 1;
+    padding: 72px 60px 96px;
+  }
+  .content-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ── ALERT BANNER ── */
+  .alert-banner {
+    background: var(--navy-dark);
+    border-left: 4px solid var(--red);
+    padding: 28px 36px;
+    margin-bottom: 56px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .alert-icon {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: var(--red);
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .alert-icon svg { width: 18px; height: 18px; fill: white; }
+  .alert-body {}
+  .alert-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .alert-text {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.75);
+  }
+  .alert-text strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* ── SECTIONS ── */
+  .legal-section {
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--stone-mid);
+  }
+  .legal-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .section-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--stone-dark);
+    line-height: 1;
+    min-width: 40px;
+  }
+  .section-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+  .section-body {
+    font-size: 0.97rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text-muted);
+    padding-left: 56px;
+  }
+  .section-body strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-dark);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 36px 60px;
+  }
+  .footer-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-copy {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer-contact a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-contact a:hover { color: var(--white); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    header { padding: 20px 24px; }
+    .page-hero { padding: 52px 24px 48px; }
+    main { padding: 48px 24px 72px; }
+    .section-body { padding-left: 0; margin-top: 12px; }
+    footer { padding: 28px 24px; }
+    .alert-banner { padding: 20px 24px; flex-direction: column; gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <img src="https://raw.githubusercontent.com/temigroup/Temi_Group_Website/main/assets/image_047.png"
+       alt="Temi Group" class="header-logo">
+  <a href="index.html" class="header-back">Back to Website</a>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="page-label">Legal Notice</span>
+    <h1 class="page-title">Email Disclaimer &amp;<br><em>Confidentiality Notice</em></h1>
+    <p class="page-subtitle">Effective for all electronic communications from JT Evolve / Temi Construction</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+  <div class="content-wrap">
+
+    <!-- BANKING FRAUD ALERT -->
+    <div class="alert-banner">
+      <div class="alert-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L1 21h22L12 2zm0 3.5L20.5 19h-17L12 5.5zM11 10v4h2v-4h-2zm0 6v2h2v-2h-2z"/>
+        </svg>
+      </div>
+      <div class="alert-body">
+        <div class="alert-title">Important Banking Fraud Warning</div>
+        <p class="alert-text">
+          <strong>JT Evolve / Temi Construction will never notify you of any change to our banking details via email.</strong>
+          Before making any payment, you are required to request a bank confirmation letter directly from our Accounts Department.
+          Always verify banking information telephonically or in writing through a verified company channel before releasing any funds.
+          We will not be held responsible or liable for payments made into an incorrect or fraudulent bank account.
+        </p>
+      </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="legal-section">
+      <div class="section-heading">
+        <span class="section-num">01</span>
+        <span class="section-name">Confidentiality</span>
+      </div>
+      <p class="section-body">
+        This email and any attachments are <strong>confidential and intended solely for the use of the individual or entity to whom they are addressed</strong>. The information contained herein may be legally privileged and protected from disclosure. If you are not the intended recipient, you are hereby notified that any reading, dissemination, distribution, copying, or other use of this communication is strictly prohibited.
+      </p>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="legal-section">
+      <div class="section-heading">
+        <span class="section-num">02</span>
+        <span class="section-name">Misdirected Email</span>
+      </div>
+      <p class="section-body">
+        If you have received this message in error, please <strong>notify the sender immediately</strong> by return email and permanently delete this message and any attachments from your system. You should not retain, copy, or disclose the contents of this message or its attachments to any other person.
+      </p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="legal-section">
+      <div class="section-heading">
+        <span class="section-num">03</span>
+        <span class="section-name">Unauthorised Use</span>
+      </div>
+      <p class="section-body">
+        Any <strong>unauthorised review, use, disclosure, or distribution</strong> of this communication is prohibited. The contents of this email must not be reproduced, forwarded, or shared without the prior written consent of JT Evolve / Temi Construction.
+      </p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="legal-section">
+      <div class="section-heading">
+        <span class="section-num">04</span>
+        <span class="section-name">Views &amp; Opinions</span>
+      </div>
+      <p class="section-body">
+        The views and opinions expressed in this communication are <strong>those of the author and do not necessarily represent the official position of JT Evolve / Temi Construction</strong>, its directors, officers, employees, or agents. Nothing in this email constitutes a binding contractual offer or commitment unless expressly confirmed in writing by an authorised representative.
+      </p>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="legal-section">
+      <div class="section-heading">
+        <span class="section-num">05</span>
+        <span class="section-name">Liability &amp; Security</span>
+      </div>
+      <p class="section-body">
+        While all reasonable steps are taken to ensure the accuracy, integrity, and security of this communication, <strong>JT Evolve / Temi Construction accepts no liability for any loss or damage</strong> arising from its use or from any corruption, interception, unauthorised alteration, or virus transmitted through this email. Recipients are advised to take full responsibility for virus checking this email and any attachments before opening them.
+      </p>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="legal-section">
+      <div class="section-heading">
+        <span class="section-num">06</span>
+        <span class="section-name">Banking Details &amp; Fraud Prevention</span>
+      </div>
+      <p class="section-body">
+        <strong>IMPORTANT:</strong> JT Evolve / Temi Construction will <strong>never</strong> notify you of any change to our banking details via email. Before making any payment to us, you are required to <strong>request a bank confirmation letter directly from our Accounts Department</strong> to verify our banking information. JT Evolve / Temi Construction will not be held responsible or liable for any payments made into an incorrect or fraudulent bank account as a result of reliance on banking details communicated by email. <strong>Always verify details with our office telephonically or in writing through a verified company channel before releasing any funds.</strong>
+      </p>
+    </div>
+
+    <!-- SECTION 7 -->
+    <div class="legal-section">
+      <div class="section-heading">
+        <span class="section-num">07</span>
+        <span class="section-name">Contact Us</span>
+      </div>
+      <p class="section-body">
+        If you have any questions regarding this notice or wish to verify the authenticity of a communication received from us, please contact us directly:<br><br>
+        <strong>JT Evolve / Temi Construction</strong><br>
+        253 Monument Road, Glen Marais, Kempton Park, Gauteng, 1619<br>
+        Tel: <a href="tel:0113910134" style="color: var(--red); text-decoration: none;">011 391 0134</a><br>
+        Email: <a href="mailto:info@temigroup.co.za" style="color: var(--red); text-decoration: none;">info@temigroup.co.za</a>
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 Temi Group. All rights reserved. · CIDB 9 GB · 8 CE · NHBRC · BBBEE Level 1</p>
+    <div class="footer-contact">
+      <a href="index.html">temigroup.co.za</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
